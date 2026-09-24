@@ -14,12 +14,10 @@ const Hero = () => {
               WORKOUT LIBRARY
             </span>
 
-            <h1 className="mt-5 text-4xl font-black uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
               TRAIN WITH INTENT.LOG
               <br />
-              <span>
                  EVERY SET.
-              </span>
             </h1>
 
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-400 sm:text-lg md:mx-0">
