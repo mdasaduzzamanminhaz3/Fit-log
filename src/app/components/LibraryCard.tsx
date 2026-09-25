@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import libraryCard from "@/assets/banner.png";
 import { IoMdStopwatch } from "react-icons/io";
 import { FaFire, FaStar } from "react-icons/fa";
 import { IFitLogs } from "@/types/FitLogs.type";
+import Link from "next/link";
 interface FitLogProops {
   fitLog: IFitLogs;
 }
@@ -11,6 +11,7 @@ const LibraryCard = ({ fitLog }: FitLogProops) => {
   // console.log("data from card",fitLog);
   return (
     <div className="container mx-auto">
+      <Link href={`/fitLogs/${fitLog.id}`}>
       <div className="card group relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/80 transition-all duration-300 hover:-translate-y-1 hover:border-lime-400/50 hover:shadow-[0_10px_30px_rgba(163,230,53,0.15)]">
         {/* Image Container with Hover Zoom */}
         <div className="relative aspect-[16/9] w-full  bg-gray-950">
@@ -72,6 +73,7 @@ const LibraryCard = ({ fitLog }: FitLogProops) => {
           </div>
         </div>
       </div>
+      </Link>
     </div>
   );
 };
