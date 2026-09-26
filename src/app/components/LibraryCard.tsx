@@ -60,11 +60,11 @@ const LibraryCard = ({ fitLog }: FitLogProops) => {
           <div className="flex items-center text-xs font-semibold text-gray-300 sm:text-sm gap-4">
             <span className="flex items-center">
               <IoMdStopwatch />
-              {fitLog.duration}
+              {fitLog.duration} min
             </span>
             <span className="flex items-center">
               <FaFire />
-              {fitLog.caloriesBurned}
+              {fitLog.caloriesBurned} kcal
             </span>
             <span className="flex items-center">
               <FaStar />

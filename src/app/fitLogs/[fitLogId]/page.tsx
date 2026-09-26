@@ -1,3 +1,5 @@
+import AddPlanButton from "@/app/components/workoutDetails/AddPlanButton";
+import SaveButton from "@/app/components/workoutDetails/SaveButton";
 import { IFitLogs } from "@/types/FitLogs.type";
 import Image from "next/image";
 import React from "react";
@@ -15,7 +17,7 @@ const getFitLog = async () => {
   return data;
 };
 
-const FitLogDetailsPage = async ({ params }: IFLDetailsPageProps) => {
+const WorkoutDetailsPage = async ({ params }: IFLDetailsPageProps) => {
   const { fitLogId } = await params;
   const fitLogsData = await getFitLog();
   
@@ -128,12 +130,8 @@ const FitLogDetailsPage = async ({ params }: IFLDetailsPageProps) => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <button className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-lime-400 hover:bg-lime-500 text-gray-950 font-bold text-sm transition-all shadow-md active:scale-[0.98]">
-              <FaCalendar className="text-base" /> Add to today's plan
-            </button>
-            <button className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-sm border border-gray-700 transition-all active:scale-[0.98]">
-              <FaBookmark className="text-base text-gray-400" /> Save for later
-            </button>
+          <AddPlanButton fitLog={fitLog} />
+          <SaveButton fitLog={fitLog}/>
           </div>
         </div>
       </div>
@@ -141,4 +139,4 @@ const FitLogDetailsPage = async ({ params }: IFLDetailsPageProps) => {
   );
 };
 
-export default FitLogDetailsPage;
+export default WorkoutDetailsPage;
