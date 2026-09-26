@@ -4,6 +4,7 @@ import { WorksoutContext } from "@/context/WorkoutContext";
 import Plans from "../components/shared/Plans";
 import { IFitLogs } from "@/types/FitLogs.type";
 import SavedWorkOut from "../components/shared/SavedWorkOut";
+import Link from "next/link";
 interface WorkoutContextType {
   addPlan: IFitLogs[];
   saveWorkout: IFitLogs[];
@@ -103,9 +104,11 @@ const MyPlansPage = () => {
                   ))}
                 </div>
               ) : (
-                <p className="py-8 text-center text-lg font-bold text-gray-400">
-                  No workout plan found
-                </p>
+                <div className="py-8 text-center bg-gray-900 rounded-md">
+                 <h2 className="uppercase font-bold text-2xl text-white">Nothing here yet</h2>
+                 <p className="text-gray-300">Browse the library and add a lift to get today moving.</p>
+                 <Link href={'/'} className="mt-4 btn bg-lime-400 rounded-full px-4 py-2 hover:bg-lime-500 text-black font-bold">Go to workouts</Link>
+                </div>
               )}
             </div>
 
@@ -125,9 +128,11 @@ const MyPlansPage = () => {
                   ))}
                 </div>
               ) : (
-                <p className="py-8 text-center text-lg font-bold text-gray-400">
-                  No workout saved found
-                </p>
+                <div className="py-8 text-center bg-gray-900 rounded-md">
+                 <h2 className="uppercase font-bold text-2xl text-white">Nothing here yet</h2>
+                 <p className="text-gray-300">Browse the library and add a lift to get today moving.</p>
+                 <Link href={'/'} className="mt-4 btn bg-lime-400 rounded-full px-4 py-2 hover:bg-lime-500 text-black font-bold">Go to workouts</Link>
+                </div>
               )}
             </div>
 

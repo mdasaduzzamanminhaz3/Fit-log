@@ -31,13 +31,13 @@ const LibraryCard = ({ fitLog }: FitLogProops) => {
               fitLog.muscleGroups.map((group: string, index: number) => (
                 <span
                   key={index}
-                  className="rounded-md border border-lime-400/20 bg-lime-400/10 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-lime-400"
+                  className="rounded-md border border-lime-400/20 bg-lime-400 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-gray-800"
                 >
                   {group}
                 </span>
               ))
             ) : (
-              <span className="rounded-md border border-lime-400/20 bg-lime-400/10 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-lime-400">
+              <span className="rounded-md border border-lime-400/20 bg-lime-400 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-gray-800">
                 {fitLog.muscleGroups}
               </span>
             )}
@@ -45,7 +45,7 @@ const LibraryCard = ({ fitLog }: FitLogProops) => {
 
           {/* Titles */}
           <div className="mt-2">
-            <h4 className="text-lg font-extrabold capitalize text-white transition-colors group-hover:text-lime-300 sm:text-xl">
+            <h4 className="text-lg font-extrabold uppercase text-white transition-colors group-hover:text-lime-300 sm:text-xl">
               {fitLog.name}
             </h4>
             <p className="mt-1 text-xs font-medium text-gray-400 sm:text-sm">
@@ -57,7 +57,7 @@ const LibraryCard = ({ fitLog }: FitLogProops) => {
           <div className="my-3 border-t border-gray-800" />
 
           {/* Stats Row */}
-          <div className="flex items-center text-xs font-semibold text-gray-300 sm:text-sm gap-4">
+          <div className="flex items-center text-xs font-semibold text-lime-300 sm:text-sm gap-4 ">
             <span className="flex items-center">
               <IoMdStopwatch />
               {fitLog.duration} min
