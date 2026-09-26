@@ -2,8 +2,9 @@ import { IFitLogs } from '@/types/FitLogs.type';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FaCheck, FaClock, FaFire, FaStar } from 'react-icons/fa';
-import { RxCross2 } from 'react-icons/rx';
+import MarksButton from '../myplanButton/MarksButton';
+import DeleteButton from '../myplanButton/DeleteButton';
+import { FaClock, FaFire, FaStar } from 'react-icons/fa';
 
 interface PlansProps {
     plan:IFitLogs;
@@ -67,16 +68,8 @@ const Plans = ({plan}: PlansProps) => {
                     View Details
                   </Link>
 
-                  <button className="btn w-full border-none bg-lime-300 text-gray-900 hover:bg-lime-400 sm:w-auto">
-                    <FaCheck />
-                    Mark As Done
-                  </button>
-                                      <button
-                    className="btn btn-circle btn-ghost text-lg text-gray-400 hover:bg-red-500/10 hover:text-red-400"
-                    aria-label="Remove from saved"
-                  >
-                    <RxCross2 />
-                  </button>
+                    <MarksButton planId={plan.id} planName={plan.name}/>
+                    <DeleteButton id={plan.id} name={plan.name} type="plan" />
                 </div>
 
               </div>

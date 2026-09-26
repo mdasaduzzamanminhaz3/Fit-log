@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaClock, FaFire, FaStar } from 'react-icons/fa';
-import { RxCross2 } from 'react-icons/rx';
+import DeleteButton from '../myplanButton/DeleteButton';
 interface SaveWorkProps {
     saveWork:IFitLogs;
 }
@@ -61,12 +61,7 @@ const SavedWorkOut = ({saveWork}:SaveWorkProps) => {
                     View Details
                   </Link>
 
-                  <button
-                    className="btn btn-circle btn-ghost text-lg text-gray-400 hover:bg-red-500/10 hover:text-red-400"
-                    aria-label="Remove from saved"
-                  >
-                    <RxCross2 />
-                  </button>
+            <DeleteButton id={saveWork.id} name={saveWork.name} type="saved" />
 
                 </div>
 
