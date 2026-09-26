@@ -15,9 +15,7 @@ const MarksButton = ({ planId, planName }: MarksButtonProps) => {
     WorksoutContext
   ) as WorkoutContextType;
 
-  // আইডি ম্যাচ করছে কিনা চেক
-  const isCompleted = completedPlanIds.some((id) => String(id) === String(planId));
-
+const isCompleted = Boolean(completedPlanIds.find((id) => String(id) === String(planId)));
   const handleToggleDone = () => {
     if (isCompleted) {
       setCompletedPlanIds((prev) => prev.filter((id) => String(id) !== String(planId)));
