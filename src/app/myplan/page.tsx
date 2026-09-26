@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { WorksoutContext } from "@/context/WorkoutContext";
 import Plans from "../components/shared/Plans";
 import { IFitLogs } from "@/types/FitLogs.type";
@@ -12,6 +12,16 @@ const MyPlansPage = () => {
   const { addPlan, saveWorkout } = useContext(
     WorksoutContext,
   ) as WorkoutContextType;
+
+  const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
+  const currentList = activeTab === "today"?addPlan:saveWorkout;
+  const totalExercises = currentList.length;
+  const totalMinutes = currentList.reduce((acc,item)=>{
+    return acc + item.duration;
+  },0)
+  const totalCalories = currentList.reduce((acc,item)=>{
+    return acc + item.caloriesBurned;
+  },0)
   return (
     <main className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
       {/* ================= HEADER ================= */}
@@ -35,21 +45,21 @@ const MyPlansPage = () => {
           <span className="text-xs uppercase tracking-wider text-gray-400 sm:text-sm">
             Exercises
           </span>
-          <h2 className="mt-1 text-2xl font-black sm:text-3xl">2</h2>
+          <h2 className="mt-1 text-2xl font-black sm:text-3xl">{totalExercises}</h2>
         </div>
 
         <div className="border-x border-gray-700 px-3 py-5 text-center sm:px-6">
           <span className="text-xs uppercase tracking-wider text-gray-400 sm:text-sm">
             Minutes
           </span>
-          <h2 className="mt-1 text-2xl font-black sm:text-3xl">23</h2>
+          <h2 className="mt-1 text-2xl font-black sm:text-3xl">{totalMinutes}</h2>
         </div>
 
         <div className="px-3 py-5 text-center sm:px-6">
           <span className="text-xs uppercase tracking-wider text-gray-400 sm:text-sm">
             Calories
           </span>
-          <h2 className="mt-1 text-2xl font-black sm:text-3xl">190</h2>
+          <h2 className="mt-1 text-2xl font-black sm:text-3xl">{totalCalories}</h2>
         </div>
       </div>
 
@@ -60,7 +70,7 @@ const MyPlansPage = () => {
           <div className="tabs tabs-lift w-full">
             {/* TODAY'S PLAN */}
             <label className="tab font-semibold">
-              <input type="radio" name="my_tabs" defaultChecked />
+              <input type="radio" name="my_tabs" checked={activeTab ==="today"} onChange={() => setActiveTab("today")}/>
               Today&apos;s Plan
             </label>
 
@@ -82,7 +92,7 @@ const MyPlansPage = () => {
 
             {/* ================= SAVED ================= */}
             <label className="tab font-semibold">
-              <input type="radio" name="my_tabs" />
+              <input type="radio" name="my_tabs" checked={activeTab ==="saved"} onChange={() => setActiveTab("saved")}/>
               Saved
             </label>
 
@@ -108,11 +118,9 @@ const MyPlansPage = () => {
                 Sort by
               </span>
               <select className="select select-bordered select-xs focus:outline-none sm:select-sm">
-                <option defaultValue="latest">Latest</option>
-                <option value="duration_asc">Duration (Shortest)</option>
-                <option value="duration_desc">Duration (Longest)</option>
-                <option value="calories_desc">Calories (Highest)</option>
-                <option value="rating_desc">Rating (Highest)</option>
+                <option value="duration_asc">Duration</option>
+                <option value="calories_desc">Calories</option>
+                <option value="rating_desc">Rating</option>
               </select>
             </div>
           </div>

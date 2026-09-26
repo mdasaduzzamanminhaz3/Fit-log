@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaCheck, FaClock, FaFire, FaStar } from 'react-icons/fa';
+import { RxCross2 } from 'react-icons/rx';
 
 interface PlansProps {
     plan:IFitLogs;
@@ -70,7 +71,12 @@ const Plans = ({plan}: PlansProps) => {
                     <FaCheck />
                     Mark As Done
                   </button>
-
+                                      <button
+                    className="btn btn-circle btn-ghost text-lg text-gray-400 hover:bg-red-500/10 hover:text-red-400"
+                    aria-label="Remove from saved"
+                  >
+                    <RxCross2 />
+                  </button>
                 </div>
 
               </div>
