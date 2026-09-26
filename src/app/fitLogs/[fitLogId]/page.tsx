@@ -3,7 +3,6 @@ import SaveButton from "@/app/components/workoutDetails/SaveButton";
 import { IFitLogs } from "@/types/FitLogs.type";
 import Image from "next/image";
 import React from "react";
-import { FaCalendar, FaBookmark } from "react-icons/fa";
 
 interface IFLDetailsPageProps {
   params: Promise<{
@@ -105,7 +104,7 @@ const WorkoutDetailsPage = async ({ params }: IFLDetailsPageProps) => {
               </div>
               <div className="flex justify-between py-2.5">
                 <span className="uppercase font-semibold text-gray-400">Rating</span>
-                <span className="font-medium text-lime-400 font-bold">{fitLog.rating || "N/A"}</span>
+                <span className="text-lime-400 font-bold">{fitLog.rating || "N/A"}</span>
               </div>
             </div>
           </div>

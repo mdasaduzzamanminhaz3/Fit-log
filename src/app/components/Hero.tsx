@@ -27,7 +27,7 @@ const Hero = () => {
 
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row md:justify-start">
               <Link
-                href="/workouts"
+                href={"/"}
                 className="btn border-none bg-lime-400 px-8 text-base font-bold text-black shadow-[0_0_20px_rgba(163,230,53,0.25)] transition-all duration-300 hover:scale-[1.02] hover:bg-lime-300 active:scale-[0.98]"
               >
                 BROWSE WORKOUTS

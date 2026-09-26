@@ -31,7 +31,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal gap-2 p-0">
                     <li>
                         <Link
-                            href="/workouts"
+                            href={"/"}
                             className="font-medium transition-colors hover:text-lime-500"
                         >
                             Workouts
@@ -91,7 +91,7 @@ const Navbar = () => {
                         className="menu dropdown-content z-50 mt-3 w-52 rounded-box bg-base-100 p-3 shadow-lg"
                     >
                         <li>
-                            <Link href="/workouts">
+                            <Link href={"/"}>
                                 Workouts
                             </Link>
                         </li>

@@ -14,10 +14,10 @@ const MyPlansPage = () => {
     WorksoutContext,
   ) as WorkoutContextType;
 
-  const [sortBy, setSortBy] = useState<"duraton_asc" | "rating_desc" | "calories_desc">("duraton_asc")
+  const [sortBy, setSortBy] = useState<"duration_asc" | "rating_desc" | "calories_desc">("rating_desc")
   const sortWorkOuts = (workouts:IFitLogs[]) => {
   const sortedWorkouts = [...workouts];
-  if(sortBy === "duraton_asc"){
+  if(sortBy === "duration_asc"){
     sortedWorkouts.sort((a,b) => a.duration - b.duration);
   }else if(sortBy === 'rating_desc'){
     sortedWorkouts.sort((a,b)=> b.rating - a.rating)
@@ -136,8 +136,8 @@ const MyPlansPage = () => {
               <span className="text-xs font-semibold text-gray-400 sm:text-sm">
                 Sort by
               </span>
-              <select value={sortBy} onChange={(e)=> setSortBy(e.target.value as "duraton_asc" | "rating_desc" | "calories_desc")} className="select select-bordered select-xs focus:outline-none sm:select-sm">
-                <option value="rating_desc">Rating</option>
+              <select value={sortBy} onChange={(e)=> setSortBy(e.target.value as "duration_asc" | "rating_desc" | "calories_desc")} className="select select-bordered select-xs focus:outline-none sm:select-sm">
+                <option defaultValue={"rating_desc"} value="rating_desc">Rating</option>
                 <option value="calories_desc">Calories</option>
                 <option value="duration_asc">Duration</option>
               </select>

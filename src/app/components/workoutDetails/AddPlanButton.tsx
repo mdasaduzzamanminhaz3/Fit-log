@@ -22,7 +22,7 @@ const isAlreadyAdded = Boolean(currentPlans.find((item) => item.id === fitLog.id
         toast.success(`You have successfully added,${fitLog.name} in your Today's Plan`)
     }
     return (
-            <button onClick={() => handleAddPlan()} className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-lime-400 hover:bg-lime-500 text-gray-950 font-bold text-sm transition-all shadow-md active:scale-[0.98]">
+            <button onClick={() => handleAddPlan()} className="btn flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-lime-400 hover:bg-lime-500 text-gray-950 font-bold text-sm transition-all shadow-md active:scale-[0.98]">
               <FaCalendar className="text-base" /> Add to today&apos;s plan
             </button>
     );

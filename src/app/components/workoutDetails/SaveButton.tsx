@@ -20,7 +20,7 @@ const SaveButton = ({fitLog}:{fitLog:IFitLogs}) => {
         toast.success(`you have savded successfully,${fitLog.name}`)
     }
     return (
-            <button onClick={() => handleSave()} className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-sm border border-gray-700 transition-all active:scale-[0.98]">
+            <button onClick={() => handleSave()} className="btn flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-sm border border-gray-700 transition-all active:scale-[0.98]">
               <FaBookmark className="text-base text-gray-400" /> Save for later
             </button>
     );
