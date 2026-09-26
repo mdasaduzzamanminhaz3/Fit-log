@@ -8,10 +8,29 @@ interface WorkoutContextType {
   addPlan: IFitLogs[];
   saveWorkout: IFitLogs[];
 }
+
 const MyPlansPage = () => {
   const { addPlan, saveWorkout } = useContext(
     WorksoutContext,
   ) as WorkoutContextType;
+
+  const [sortBy, setSortBy] = useState<"duraton_asc" | "rating_desc" | "calories_desc">("duraton_asc")
+  const sortWorkOuts = (workouts:IFitLogs[]) => {
+  const sortedWorkouts = [...workouts];
+  if(sortBy === "duraton_asc"){
+    sortedWorkouts.sort((a,b) => a.duration - b.duration);
+  }else if(sortBy === 'rating_desc'){
+    sortedWorkouts.sort((a,b)=> b.rating - a.rating)
+  }else if (sortBy === "calories_desc"){
+    sortedWorkouts.sort((a,b)=> b.caloriesBurned - a.caloriesBurned)
+  }
+  return sortedWorkouts;
+}
+  const sortedTodaysPlan = sortWorkOuts(addPlan);
+  const sortedSaved = sortWorkOuts(saveWorkout);
+
+// console.log(sortedTodaysPlan);
+// console.log(sortedSaved);
 
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
   const currentList = activeTab === "today"?addPlan:saveWorkout;
@@ -77,9 +96,9 @@ const MyPlansPage = () => {
             <div className="tab-content border-base-300 bg-base-100 p-3 sm:p-6">
               {/* Workout Card */}
 
-              {addPlan && addPlan.length > 0 ? (
+              {sortedTodaysPlan && sortedTodaysPlan.length > 0 ? (
                 <div className="flex flex-col gap-4">
-                  {addPlan.map((plan: IFitLogs) => (
+                  {sortedTodaysPlan.map((plan: IFitLogs) => (
                     <Plans key={plan.id} plan={plan} />
                   ))}
                 </div>
@@ -99,9 +118,9 @@ const MyPlansPage = () => {
             <div className="tab-content border-base-300 bg-base-100 p-3 sm:p-6">
               {/* Saved Workout Card */}
 
-              {saveWorkout && saveWorkout.length > 0 ? (
+              {sortedSaved && sortedSaved.length > 0 ? (
                 <div className="flex flex-col gap-4">
-                  {saveWorkout.map((saveWork: IFitLogs) => (
+                  {sortedSaved.map((saveWork: IFitLogs) => (
                     <SavedWorkOut key={saveWork.id} saveWork={saveWork} />
                   ))}
                 </div>
@@ -117,10 +136,10 @@ const MyPlansPage = () => {
               <span className="text-xs font-semibold text-gray-400 sm:text-sm">
                 Sort by
               </span>
-              <select className="select select-bordered select-xs focus:outline-none sm:select-sm">
-                <option value="duration_asc">Duration</option>
-                <option value="calories_desc">Calories</option>
+              <select value={sortBy} onChange={(e)=> setSortBy(e.target.value as "duraton_asc" | "rating_desc" | "calories_desc")} className="select select-bordered select-xs focus:outline-none sm:select-sm">
                 <option value="rating_desc">Rating</option>
+                <option value="calories_desc">Calories</option>
+                <option value="duration_asc">Duration</option>
               </select>
             </div>
           </div>
