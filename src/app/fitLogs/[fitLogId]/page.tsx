@@ -3,6 +3,7 @@ import SaveButton from "@/app/components/workoutDetails/SaveButton";
 import { IFitLogs } from "@/types/FitLogs.type";
 import Image from "next/image";
 import React from "react";
+import { toast } from "react-toastify";
 
 interface IFLDetailsPageProps {
   params: Promise<{
@@ -11,9 +12,15 @@ interface IFLDetailsPageProps {
 }
 
 const getFitLog = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+  try {
+  const res = await fetch("https://api.abcz.workers.dev/api/fitlog",{cache:'force-cache'});
   const data = await res.json();
   return data;
+  } catch (error) {
+    console.log("Faild to load workouts.Please try again!",error);
+    toast.error(`Faild to load workouts.Someting went wrong.`)
+  }
+
 };
 
 const WorkoutDetailsPage = async ({ params }: IFLDetailsPageProps) => {

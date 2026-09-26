@@ -3,10 +3,15 @@ import LibraryCard from '../LibraryCard';
 import { IFitLogs } from '@/types/FitLogs.type';
 
 const getFitLog = async () => {
-  const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
+  try {
+  const res = await fetch('https://api.abcz.workers.dev/api/fitlog',{next:{revalidate:10}});
   const data = await res.json();
   // console.log(data);
   return data;
+  } catch (error) {
+    console.log("Workwous couldn't fetching. please try again! ",error);
+  }
+
 };
 
 const Library = async () => {
