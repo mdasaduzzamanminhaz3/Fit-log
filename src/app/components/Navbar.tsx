@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import navLogo from "@/assets/logo.png";
+import PlanButton from "./shared/navbarPlanButton/PlanButton";
+import SavedButton from "./shared/navbarPlanButton/SavedButton";
 
 const Navbar = () => {
     return (
@@ -51,17 +53,11 @@ const Navbar = () => {
             <div className="navbar-end hidden items-center gap-3 md:flex">
 
                 <div className="flex items-center gap-2 rounded-xl bg-base-200 px-3 py-2">
-                    <span className="text-sm font-medium">Plan</span>
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime-300 text-sm font-bold text-black">
-                        0
-                    </span>
+                    <PlanButton/>
                 </div>
 
                 <div className="flex items-center gap-2 rounded-xl bg-base-200 px-3 py-2">
-                    <span className="text-sm font-medium">Saved</span>
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime-300 text-sm font-bold text-black">
-                        0
-                    </span>
+                  <SavedButton/>
                 </div>
             </div>
 
@@ -109,21 +105,11 @@ const Navbar = () => {
                         <div className="divider my-1" />
 
                         <li>
-                            <div className="flex justify-between">
-                                <span>Plan</span>
-                                <span className="badge bg-lime-300 text-black">
-                                    0
-                                </span>
-                            </div>
+                            <PlanButton/>
                         </li>
 
                         <li>
-                            <div className="flex justify-between">
-                                <span>Saved</span>
-                                <span className="badge bg-lime-300 text-black">
-                                    0
-                                </span>
-                            </div>
+                        <SavedButton/>
                         </li>
                     </ul>
                 </div>
