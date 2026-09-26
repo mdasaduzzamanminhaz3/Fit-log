@@ -38,7 +38,7 @@ const Navbar = () => {
 
                     <li>
                         <Link
-                            href="/my-plan"
+                            href="/myplan"
                             className="font-medium transition-colors hover:text-lime-500"
                         >
                             My Plan
@@ -101,7 +101,7 @@ const Navbar = () => {
                         </li>
 
                         <li>
-                            <Link href="/my-plan">
+                            <Link href="/myplan">
                                 My Plan
                             </Link>
                         </li>
