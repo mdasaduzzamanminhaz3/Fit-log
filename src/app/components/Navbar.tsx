@@ -8,7 +8,7 @@ import NavLink from "./NavLinks";
 
 const Navbar = () => {
   return (
-    <nav className="navbar container mx-auto my-2 rounded-2xl bg-base-100/80 px-4 shadow-sm backdrop-blur-md md:px-6">
+    <nav className="navbar container mx-auto my-2 rounded-2xl bg-base-100/80 px-4 shadow-sm backdrop-blur-md md:px-6 relative z-50">
       {/* Logo */}
       <div className="navbar-start">
         <Link href="/" className="flex items-center gap-2">
@@ -50,7 +50,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className="navbar-end md:hidden">
+      <div className="navbar-end md:hidden relative z-50">
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <svg
