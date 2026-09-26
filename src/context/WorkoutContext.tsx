@@ -16,7 +16,7 @@ export const WorksoutContext = createContext<WorkoutContextType | null>(null);
 const WorksoutProvider = ({ children }: { children: ReactNode }) => {
   const [addPlan, setAddPlan] = useState<IFitLogs[]>([]);
   const [saveWorkout, setSaveWorkout] = useState<IFitLogs[]>([]);
-  const [completedPlanIds, setCompletedPlanIds] = useState<(number)[]>([]);
+  const [completedPlanIds, setCompletedPlanIds] = useState<(string | number)[]>([]);
 
   const sharedData: WorkoutContextType = {
     addPlan,
